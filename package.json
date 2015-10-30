@@ -4,6 +4,7 @@
     "version": "0.0.3",
     "author": "Neekey ni184775761@gmail.com",
     "keywords": [ "table parser shell" ],
+    "license": "MIT",
     "main": "index.js",
     "repository": {
         "type": "git",
