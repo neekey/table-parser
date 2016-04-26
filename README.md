@@ -65,3 +65,20 @@ Which will output:
     TIME: [ '0:00.01' ],
     CMD: [ 'ps', '-a' ] } ]
 ```
+
+## Double quotation marks
+
+Normally, all the values will be transformed into array using `split( /\s+/ )`, but string wrapped with `"` will be treated as a continuous string. 
+
+For example, the CommandLine below:
+
+```
+"C:\Program Files\Internet Explorer\iexplore.exe" --name="Jack Neekey" --sex=male otherargs
+```
+
+will be split into:
+
+- `C:\Program Files\Internet Explorer\iexplore.exe` ( `"` will be removed, if `"` is at the beginning )
+- `--name="Jack Neekey"`    ( `"` is reserved )
+- `--sex=male`
+- `otherargs`
