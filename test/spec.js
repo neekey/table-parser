@@ -8,7 +8,7 @@ var GetOutput = function( filename ){
     return FS.readFileSync( Path.resolve( __dirname, 'output/' + filename )).toString();
 };
 
-describe( 'desc-name', function(){
+describe( 'tabler-parser', function(){
 
     it( 'a normal linux ps output', function(){
         var output = GetOutput( 'ps.log' );
@@ -82,6 +82,12 @@ describe( 'desc-name', function(){
         ];
 
         Assert.deepEqual( result, expectResult );
+    });
+
+    it( 'windows wmic EOL as \r', function(){
+        var output = GetOutput( 'windows-wmic.log' );
+        var result = TableParser.parse( output );
+        Assert.equal( result.length > 0, true );
     });
 
 });

@@ -7,7 +7,7 @@
     "table parser shell"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/mocha  -t 0 -R spec test/spec.js"
+    "test": "node ./node_modules/mocha/bin/mocha  -t 0 -R spec test/spec.js"
   },
   "license": "MIT",
   "main": "index.js",
