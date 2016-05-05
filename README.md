@@ -1,4 +1,4 @@
-TableParser
+TableParser [![Build Status](https://travis-ci.org/neekey/table-parser.svg)](https://travis-ci.org/neekey/table-parser)
 ================
 
 A parser to parse table style output from shell
