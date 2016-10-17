@@ -91,7 +91,7 @@ describe('tabler-parser', function () {
   });
 
   it('should work for `aux`', function() {
-    var output = GetOutput('aux.log');
+    var output = GetOutput('auxlog.log');
     var result = TableParser.parse(output);
     Assert.equal(result.length > 0, true);
     result.forEach(function(ret) {
