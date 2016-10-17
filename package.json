@@ -1,7 +1,7 @@
 {
   "name": "table-parser",
   "description": "Simple parser for shell-style data output",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Neekey ni184775761@gmail.com",
   "keywords": [
     "table parser shell"
