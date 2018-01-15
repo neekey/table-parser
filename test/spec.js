@@ -44,6 +44,37 @@ describe('tabler-parser', function () {
     Assert.deepEqual(result, expectResult);
   });
 
+  it('with a repeated header', function () {
+    var output = GetOutput('ps-repeated-header.log');
+    var result = TableParser.parse(output);
+
+    var expectResult = [
+      {
+        'PID': ['338'],
+        'PPID': ['1'],
+        'COMMAND': [
+          '/usr/sbin/distnoted',
+          'agent'
+        ]
+      },
+      {
+        'PID': ['341'],
+        'PPID': ['1'],
+        'COMMAND': [
+          '/usr/libexec/trustd',
+          '--agent'
+        ]
+      },
+      {
+        'PID': ['342'],
+        'PPID': ['1'],
+        'COMMAND': ['/usr/libexec/lsd']
+      },
+    ];
+
+    Assert.deepEqual(result, expectResult);
+  });
+
   it('a windows output', function () {
     var output = GetOutput('wmic.log');
     var result = TableParser.parse(output);
