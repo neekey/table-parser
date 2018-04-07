@@ -18,6 +18,7 @@
     "url": "https://github.com/neekey/table-parser.git"
   },
   "dependencies": {
+    "@semantic-release/git": "^4.0.1",
     "connected-domain": "^1.0.0"
   },
   "devDependencies": {
