@@ -7,19 +7,23 @@
     "table parser shell"
   ],
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha  -t 0 -R spec test/spec.js"
+    "test": "node ./node_modules/mocha/bin/mocha  -t 0 -R spec test/spec.js",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Neekey/table-parser.git"
+    "url": "https://github.com/neekey/table-parser.git"
   },
   "dependencies": {
     "connected-domain": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "semantic-release": "^15.1.5",
+    "travis-deploy-once": "^4.4.1"
   }
 }
