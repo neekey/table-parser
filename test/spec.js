@@ -132,4 +132,46 @@ describe('tabler-parser', function () {
       Assert.equal(/^\w+$/.test(ret.USER), true);
     });
   });
+
+
+  it('should apply key and value transformers', function () {
+    var output = GetOutput('ps.log');
+    var result = TableParser.parse(output, {
+      keyTransformer: function(key) {
+        return 'a' + key;
+      },
+      valueTransformer: function(value) {
+        return value.join(' ');
+      }
+    });
+
+    var expectResult = [
+      {
+        'aPID': '692',
+        'aTTY': 'ttys000',
+        'aTIME': '0:00.06',
+        'aCMD': 'login -pfl neekey /bin/bash -c exec -la bash /bin/bash'
+      },
+      {
+        'aPID': '49693',
+        'aTTY': 'ttys000666',
+        'aTIME': '0:00.06',
+        'aCMD': '-bash'
+      },
+      {
+        'aPID': '',
+        'aTTY': 'ttys000',
+        'aTIME': '0:47.81',
+        'aCMD': '/Users/neekey/Dropbox/nodejs/app/windTest/Redis/mac_linux/src/redis-server'
+      },
+      {
+        'aPID': '52300',
+        'aTTY': 'ttys001',
+        'aTIME': '0:00.05',
+        'aCMD': 'login -pfl neekey /bin/bash -c exec -la bash /bin/bash'
+      }
+    ];
+
+    Assert.deepEqual(result, expectResult);
+  })
 });
