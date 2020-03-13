@@ -68,7 +68,7 @@ Which will output:
 
 ## Double quotation marks
 
-Normally, all the values will be transformed into array using `split( /\s+/ )`, but string wrapped with `"` will be treated as a continuous string. 
+Normally, all the values will be transformed into array using `split( /\s+/ )`, but string wrapped with `"` will be treated as a continuous string.
 
 For example, the CommandLine below:
 
@@ -82,3 +82,58 @@ will be split into:
 - `--name="Jack Neekey"`    ( `"` is reserved )
 - `--sex=male`
 - `otherargs`
+
+
+## Key/value transformers
+
+To apply transformations in the keys or values of a parsed table you can use the options parameter.
+
+```javascript
+var FS = require( 'fs' );
+var Parser = require('table-parser');
+
+var linux_ps = './ps.log';
+
+data = FS.readFileSync( linux_ps ).toString();
+var parsedData = Parser.parse( data, {
+  keyTransformer: function(key) {
+    return 'a' + key;
+  },
+  valueTransformer: function(value) {
+    return value.join();
+  }
+} );
+
+console.log( parsedData );
+```
+
+Which will output:
+
+```bash
+[
+  {
+    'aPID': '692',
+    'aTTY': 'ttys000',
+    'aTIME': '0:00.06',
+    'aCMD': 'login -pfl neekey /bin/bash -c exec -la bash /bin/bash'
+  },
+  {
+    'aPID': '49693',
+    'aTTY': 'ttys000666',
+    'aTIME': '0:00.06',
+    'aCMD': '-bash'
+  },
+  {
+    'aPID': '',
+    'aTTY': 'ttys000',
+    'aTIME': '0:47.81',
+    'aCMD': '/Users/neekey/Dropbox/nodejs/app/windTest/Redis/mac_linux/src/redis-server'
+  },
+  {
+    'aPID': '52300',
+    'aTTY': 'ttys001',
+    'aTIME': '0:00.05',
+    'aCMD': 'login -pfl neekey /bin/bash -c exec -la bash /bin/bash'
+  }
+]
+```
