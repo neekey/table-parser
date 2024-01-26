@@ -18,13 +18,13 @@
     "url": "https://github.com/neekey/table-parser.git"
   },
   "dependencies": {
-    "@semantic-release/git": "^4.0.1",
     "connected-domain": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5",
-    "semantic-release": "^15.1.5",
+    "mocha": "^10.1.0",
+    "@semantic-release/git": "^4.0.1",
+    "semantic-release": "^19.0.3",
     "travis-deploy-once": "^4.4.1"
   }
 }
